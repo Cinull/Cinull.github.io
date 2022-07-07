@@ -13,4 +13,6 @@
                 window.location.href='index3.html';
             else if(album4.includes(value))
                 window.location.href='index4.html';
+            else
+                alert("曲库中暂无此歌曲")
         }
