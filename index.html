@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script type="text/javascript" src="readtext.js"></script>
         <meta name="viewport" content="width=divice-width,initial-scale=1">
         <title>MusicCenter</title>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -32,7 +33,6 @@
                 text-align: center;        
                 line-height: 32px;
                 cursor: pointer;
-        
             }
 
             .mydivclear{float:left;width:100%;height:1px;}
@@ -48,9 +48,9 @@
     
         <div id="box">
 
-            <input type="text" name="search" placeholder="在此处搜索音乐">
+            <input type="text" name="search" id="searchif" placeholder="在此处搜索音乐">
     
-            <div id="search">搜索</div> 
+            <div id="search"  onclick="readtext()">搜索</div> 
     
         </div>
 
