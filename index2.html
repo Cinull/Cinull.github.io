@@ -3,7 +3,28 @@
     <head> <meta name="viewport" content="width=divice-width,initial-scale=1">
         <title>MusicCenter</title>
         <link rel="stylesheet" type="text/css" href="style2.css">
-        <style type="text/css"></style>
+        <style type="text/css">
+            #music {
+                width: 500px;
+                height: 500px;
+                border-radius: 10px;
+                margin: 20px auto;
+                position: relative;
+                background-size: cover;
+                text-align: center;
+            }
+            #container {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 500px;
+                height: 500px;
+                text-align: center;
+                background:rgba(3, 0, 15, 0.6);
+            }
+        </style>
     </head>
        
     
@@ -18,11 +39,112 @@
             <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jay<br><br><span>&nbsp;&nbsp;&nbsp;&nbsp;《Jay》是 周杰伦 的首张音乐专辑，由周杰伦制作、作曲，方文山、徐若瑄等人作词,收录了10首歌曲,2000年11月7日发行。2001年,该专辑获得台湾金曲奖最佳流行音乐演唱专辑奖、IFPI香港唱片销量大奖十大销量国语唱片等奖项。      </div>
     </div>
 
-    <p><font size="3" color="white"><br><br>《可爱女人》<br><br><br>《完美主义》<br><br><br>《星晴》<br><br><br>
-        《娘子》<br><br><br>《斗牛》<br><br><br>《黑色幽默》<br><br><br>《伊斯坦堡》<br><br><br>《印第安老斑鸠》
-        <br><br><br>《龙卷风》<br><br><br>《反方向的钟》<br></font></p>
-        <embed src="夏日入侵企画 - 没有名字的夜晚.mp3" controls=smallconsole width=400 height=100 autostart=true>
-        <div class="mydivclear"></div>   
+    <p><font size="3" color="white"><br><br>《可爱女人》<button id="play1">播放</button><br><br><br>《完美主义》
+        <button id="play2">播放</button><br><br><br>《星晴》<button id="play3">播放</button><br><br><br>
+        《娘子》<button id="play4">播放</button><br><br><br>《斗牛》<button id="play5">播放</button>
+        <br><br><br>《黑色幽默》<button id="play6">播放</button><br><br><br>《伊斯坦堡》<button id="play7">播放
+        </button><br><br><br>《印第安老斑鸠》<button id="play8">播放</button><br><br><br>《龙卷风》
+        <button id="play9">播放</button><br><br><br>《反方向的钟》<button id="play10">播放</button><br></font></p>
+
+            <div id="music">
+                <div id="container">
+                    <audio src="./music_2/1.mp3" controls id="audio"></audio>                    
+                    <div class="btn">
+                        <button id="play">开始</button>
+                        <button id="pause">暂停</button>
+                        <button id="prev">上一首</button>
+                        <button id="next">下一首</button>
+                    </div>
+                </div>
+            </div>
+            <script>
+            // 播放
+            play.onclick = function(){
+                if(audio.paused){
+                    audio.play();
+                }
+            }
+                 
+            // 暂停
+            pause.onclick = function(){
+                if(audio.played){
+                    audio.pause();
+                }
+            }
+    
+            var num=1;
+            var len=10;
+            prev.onclick = function(){
+                if(num>1){
+                    num = num - 1;
+                    }
+                else{
+                    num=10;
+                    }
+                
+                audio.src = './music_2/' + num + '.mp3';
+                audio.play();
+            }
+             
+            // 下一首
+            next.onclick = function(){
+                if(num<10){
+                    num = num + 1;
+                    }
+                else{
+                    num=1;
+                    }
+                audio.src = './music_2/' + num + '.mp3';
+                audio.play();
+            }
+                 
+            audio.addEventListener('ended',function(){
+                next.onclick();
+            },false);
+            // 上一首  
+            play1.onclick = function(){
+                audio.src = './music_2/1.mp3';
+                audio.play();
+            }
+            play2.onclick = function(){
+                audio.src = './music_2/2.mp3';
+                audio.play();
+            }
+            play3.onclick = function(){
+                audio.src = './music_2/3.mp3';
+                audio.play();
+            }
+            play4.onclick = function(){
+                audio.src = './music_2/4.mp3';
+                audio.play();
+            }
+            play5.onclick = function(){
+                audio.src = './music_2/5.mp3';
+                audio.play();
+            }
+            play6.onclick = function(){
+                audio.src = './music_2/6.mp3';
+                audio.play();
+            }
+            play7.onclick = function(){
+                audio.src = './music_2/7.mp3';
+                audio.play();
+            }
+            play8.onclick = function(){
+                audio.src = './music_2/8.mp3';
+                audio.play();
+            }
+            play9.onclick = function(){
+                audio.src = './music_2/9.mp3';
+                audio.play();
+            }
+            play10.onclick = function(){
+                audio.src = './music_2/10.mp3';
+                audio.play();
+            }    
+            </script>
+    
+            <div class="mydivclear"></div>   
 </body>
 
 </html>

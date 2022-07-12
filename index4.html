@@ -3,7 +3,28 @@
     <head> <meta name="viewport" content="width=divice-width,initial-scale=1">
         <title>MusicCenter</title>
         <link rel="stylesheet" type="text/css" href="style2.css">
-        <style type="text/css"></style>
+        <style type="text/css">
+            #music {
+                width: 500px;
+                height: 500px;
+                border-radius: 10px;
+                margin: 20px auto;
+                position: relative;
+                background-size: cover;
+                text-align: center;
+            }
+            #container {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 500px;
+                height: 500px;
+                text-align: center;
+                background:rgba(3, 0, 15, 0.6);
+            }
+        </style>
     </head>
        
     
@@ -18,10 +39,112 @@
                 <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;皮球精选<br><br><span>&nbsp;&nbsp;&nbsp;&nbsp;这是一位不愿意透露姓名的朋友推荐给大家的歌，歌评人本人很认真地学习了专辑的顺序排布，是随机播放找到的精选中的精选。<br> <span>&nbsp;&nbsp;&nbsp;&nbsp;明天周六 可以把有空一起玩改成我们去约会吗       
             </div>
         </div>
-        <p><font size="3" color="white"><br><br>《带我去找夜生活》<br><br><br>《スパークル》<br><br><br>《无人的海边》<br><br><br>
-            《Perfect》<br><br><br>《这是我一生中最勇敢的瞬间》<br><br><br>《this is what falling in love feels like》<br><br><br>《岛屿》<br><br><br>《orion》
-            <br><br><br>《没有名字的夜晚》<br><br><br>《今夜无法入眠》<br></font></p>
-            <embed src="棱镜乐队 - 这是我一生中最勇敢的瞬间.mp3" controls=smallconsole width=400 height=100 autostart=true>
+        <p><font size="3" color="white"><br><br>《带我去找夜生活》<button id="play1">播放</button><br><br><br>《スパークル》
+        <button id="play2">播放</button><br><br><br>《无人的海边》<button id="play3">播放</button><br><br><br>
+        《Perfect》<button id="play4">播放</button><br><br><br>《这是我一生中最勇敢的瞬间》<button id="play5">播放</button>
+        <br><br><br>《岛屿》<button id="play6">播放</button><br><br><br>《this is what falling in love feels like》<button id="play7">播放
+        </button><br><br><br>《orion》<button id="play8">播放</button><br><br><br>《今夜无法入眠》
+        <button id="play9">播放</button><br><br><br>《微博控》<button id="play10">播放</button><br></font></p>
+                
+
+            <div id="music">
+                <div id="container">
+                    <audio src="./music_4/1.mp3" controls id="audio"></audio>                    
+                    <div class="btn">
+                        <button id="play">开始</button>
+                        <button id="pause">暂停</button>
+                        <button id="prev">上一首</button>
+                        <button id="next">下一首</button>
+                    </div>
+                </div>
+            </div>
+            <script>
+            // 播放
+            play.onclick = function(){
+                if(audio.paused){
+                    audio.play();
+                }
+            }
+                 
+            // 暂停
+            pause.onclick = function(){
+                if(audio.played){
+                    audio.pause();
+                }
+            }
+    
+            var num=1;
+            var len=10;
+            prev.onclick = function(){
+                if(num>1){
+                    num = num - 1;
+                    }
+                else{
+                    num=10;
+                    }
+                
+                audio.src = './music_4/' + num + '.mp3';
+                audio.play();
+            }
+             
+            // 下一首
+            next.onclick = function(){
+                if(num<10){
+                    num = num + 1;
+                    }
+                else{
+                    num=1;
+                    }
+                audio.src = './music_4/' + num + '.mp3';
+                audio.play();
+            }
+                 
+            audio.addEventListener('ended',function(){
+                next.onclick();
+            },false);
+            // 上一首      
+            play1.onclick = function(){
+                audio.src = './music_4/1.mp3';
+                audio.play();
+            }
+            play2.onclick = function(){
+                audio.src = './music_4/2.mp3';
+                audio.play();
+            }
+            play3.onclick = function(){
+                audio.src = './music_4/3.mp3';
+                audio.play();
+            }
+            play4.onclick = function(){
+                audio.src = './music_4/4.mp3';
+                audio.play();
+            }
+            play5.onclick = function(){
+                audio.src = './music_4/5.mp3';
+                audio.play();
+            }
+            play6.onclick = function(){
+                audio.src = './music_4/6.mp3';
+                audio.play();
+            }
+            play7.onclick = function(){
+                audio.src = './music_4/7.mp3';
+                audio.play();
+            }
+            play8.onclick = function(){
+                audio.src = './music_4/8.mp3';
+                audio.play();
+            }
+            play9.onclick = function(){
+                audio.src = './music_4/9.mp3';
+                audio.play();
+            }
+            play10.onclick = function(){
+                audio.src = './music_4/10.mp3';
+                audio.play();
+            }      
+            </script>
+
             <div class="mydivclear"></div>   
     </body>
 

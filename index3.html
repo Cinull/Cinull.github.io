@@ -3,7 +3,28 @@
     <head> <meta name="viewport" content="width=divice-width,initial-scale=1">
         <title>MusicCenter</title>
         <link rel="stylesheet" type="text/css" href="style2.css">
-        <style type="text/css"></style>
+        <style type="text/css">
+            #music {
+                width: 500px;
+                height: 500px;
+                border-radius: 10px;
+                margin: 20px auto;
+                position: relative;
+                background-size: cover;
+                text-align: center;
+            }
+            #container {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 500px;
+                height: 500px;
+                text-align: center;
+                background:rgba(3, 0, 15, 0.6);
+            }
+        </style>
     </head>
        
     
@@ -16,12 +37,114 @@
         <div class="content">
             <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苏格拉没有底<br><br><span>&nbsp;&nbsp;&nbsp;&nbsp;《苏格拉没有底》是许嵩第三张个人专辑,于2011年4月1日首发,全碟共收录10首歌曲,词曲等制作工作均由许嵩包揽。《苏格拉没有底》荣获第9届 亚太音乐榜 ——数位专辑销量榜冠军,于2012年5月16日在马来西亚吉隆坡进行颁奖。    </div>
     </div>
+
+    <p><font size="3" color="white"><br><br>《拆东墙》<button id="play1">播放</button><br><br><br>《医生》
+        <button id="play2">播放</button><br><br><br>《降温》<button id="play3">播放</button><br><br><br>
+        《想象之中》<button id="play4">播放</button><br><br><br>《河山大好》<button id="play5">播放</button>
+        <br><br><br>《双人旁》<button id="play6">播放</button><br><br><br>《千百度》<button id="play7">播放
+        </button><br><br><br>《毁人不倦》<button id="play8">播放</button><br><br><br>《敬酒不吃》
+        <button id="play9">播放</button><br><br><br>《微博控》<button id="play10">播放</button><br></font></p>
         
-    <p><font size="3" color="white"><br><br>《拆东墙》<br><br><br>《医生》<br><br><br>《降温》<br><br><br>
-        《想象之中》<br><br><br>《河山大好》<br><br><br>《双人旁》<br><br><br>《千百度》<br><br><br>《毁人不倦》
-        <br><br><br>《敬酒不吃》<br><br><br>《微博控》<br></font></p>
-        <embed src="夏日入侵企画 - 没有名字的夜晚.mp3" controls=smallconsole width=400 height=100 autostart=true>
+        <div id="music">
+            <div id="container">
+                <audio src="./music_3/1.mp3" controls id="audio"></audio>                    
+                <div class="btn">
+                    <button id="play">开始</button>
+                    <button id="pause">暂停</button>
+                    <button id="prev">上一首</button>
+                    <button id="next">下一首</button>
+                </div>
+            </div>
+        </div>
+        <script>
+        // 播放
+        play.onclick = function(){
+            if(audio.paused){
+                audio.play();
+            }
+        }
+             
+        // 暂停
+        pause.onclick = function(){
+            if(audio.played){
+                audio.pause();
+            }
+        }
+
+        var num=1;
+        var len=10;
+        prev.onclick = function(){
+            if(num>1){
+                num = num - 1;
+                }
+            else{
+                num=10;
+                }
+            
+            audio.src = './music_3/' + num + '.mp3';
+            audio.play();
+        }
+         
+        // 下一首
+        next.onclick = function(){
+            if(num<10){
+                num = num + 1;
+                }
+            else{
+                num=1;
+                }
+            audio.src = './music_3/' + num + '.mp3';
+            audio.play();
+        }
+             
+        audio.addEventListener('ended',function(){
+            next.onclick();
+        },false);
+        // 上一首   
+        play1.onclick = function(){
+            audio.src = './music_3/1.mp3';
+            audio.play();
+        }
+        play2.onclick = function(){
+            audio.src = './music_3/2.mp3';
+            audio.play();
+        }
+        play3.onclick = function(){
+            audio.src = './music_3/3.mp3';
+            audio.play();
+        }
+        play4.onclick = function(){
+            audio.src = './music_3/4.mp3';
+            audio.play();
+        }
+        play5.onclick = function(){
+            audio.src = './music_3/5.mp3';
+            audio.play();
+        }
+        play6.onclick = function(){
+            audio.src = './music_3/6.mp3';
+            audio.play();
+        }
+        play7.onclick = function(){
+            audio.src = './music_3/7.mp3';
+            audio.play();
+        }
+        play8.onclick = function(){
+            audio.src = './music_3/8.mp3';
+            audio.play();
+        }
+        play9.onclick = function(){
+            audio.src = './music_3/9.mp3';
+            audio.play();
+        }
+        play10.onclick = function(){
+            audio.src = './music_3/10.mp3';
+            audio.play();
+        }         
+        </script>
+
         <div class="mydivclear"></div>   
+
 </body>
 
 </html>
